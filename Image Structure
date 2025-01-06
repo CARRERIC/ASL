@@ -1,0 +1,25 @@
+### Image Structure
+
+The images labeled with **labelImg** follow a specific folder structure located in the `train_alabe` folder within the root directory of the **yolov7** repository. The structure is as follows:
+
+- **`train/images`**: Folder containing the training images.
+- **`train/labels`**: Folder containing `.txt` files with labels corresponding to the training images.
+- **`valid/images`**: Folder containing the validation images.
+- **`valid/labels`**: Folder containing `.txt` files with labels corresponding to the validation images.
+
+The image directory was added to the `data` folder, where a YAML file (`custom.yaml`) was created containing the paths to the images. The file is structured as follows:
+
+```yaml
+# Location of the images
+# path: ../train_alabe # dataset root dir
+train: /yolov7/train_alabe/train/images
+val: /yolov7/train_alabe/valid/images
+test: # test images (optional)
+
+# Classes used
+nc: 7 # number of classes
+names: [’Erosion’, ’Grieta_concha’, ’Grieta_coat’, ’GuardaPolvo’, 
+        ’Impacto_Rayo’, ’Mal_acabado’, ’Suciedad’] # Class names
+```
+
+Subsequently, the **`yolov7.yaml`** file located in `cfg/training` was modified to configure the number of classes (`nc: 7`). Additionally, the pre-trained weights for the YOLOv7 model were downloaded and saved in the root folder of the **yolov7** directory.
